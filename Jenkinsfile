@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+        stage('Hello') {
             steps {
-                sh 'ruby --version'
+                echo 'Hello World'
             }
         }
     }
