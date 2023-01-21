@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker { image 'maven:3.8.7-eclipse-temurin-11' } }
+    agent { docker { image 'ruby:3.1.2-alpine' } }
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                sh 'ruby --version'
             }
         }
     }
