@@ -9,7 +9,7 @@ pipeline {
 	
 		stage('Build & Push docker') {
 			steps {
-				withDockerRegistry(credentialsId: 'dokcerHub', url: 'https://index.docker.io/v1/') {
+				withDockerContainer('jenkins:jenkins:lts') {
 				sh 'docker build -t 20127509/testt .'
 				sh 'docker push 20127509/testt'}}}
         			
