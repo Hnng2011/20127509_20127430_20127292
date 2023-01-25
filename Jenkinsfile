@@ -19,14 +19,14 @@ pipeline {
 
 		stage('Login Docker') {
 			env.PATH = "${dockerHome}/bin:${env.PATH}"
-			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'}}
+			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			steps {
 				def dockerHome = tool '20127509'}}
         			
 	
 		stage('Push Docker') {
 			env.PATH = "${dockerHome}/bin:${env.PATH}"
-			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'}}
+			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			steps {
 				sh 'docker push 20127509/testt'}}
     }
