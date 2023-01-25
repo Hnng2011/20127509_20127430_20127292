@@ -22,6 +22,6 @@ pipeline {
 	
 		stage('Push Docker') {
 			steps {
-				sh 'docker push 20127509/testt'}
+				sh 'docker push 20127509/testt'}}
     }
 }
