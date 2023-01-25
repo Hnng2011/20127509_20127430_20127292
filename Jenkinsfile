@@ -29,6 +29,6 @@ pipeline {
 			env.PATH = "${dockerHome}/bin:${env.PATH}"
 			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'}}
 			steps {
-				sh 'docker push 20127509/testt'}}
+				sh 'docker push 20127509/testt'}
     }
 }
