@@ -7,16 +7,13 @@ pipeline {
     
 
 	stages {
-		stage('Initialize'){
-			steps{
-        			def dockerHome = tool '20127509'
-        			env.PATH = "${dockerHome}/bin:${env.PATH}"}}
-		
 		stage('Hello') {
 			steps {
 				echo 'Hello World'}}
 	
-	
+		stage('Initialize'){
+        			def dockerHome = tool '20127509'
+        			env.PATH = "${dockerHome}/bin:${env.PATH}"}
 		stage('Build Docker') {
 			steps {
 				sh 'docker build -t 20127509/testt .'}}
