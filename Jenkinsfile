@@ -1,19 +1,26 @@
 pipeline {
     agent any
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
+    enviroment {
+	DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+    }
+    
+
+	stages {
+		stage('Hello') {
+			steps {
+				echo 'Hello World'}}
+	
+	
+	stage('Build Docker') {
+		sh 'docker build -t 20127509/testt .'
         }
 
-        stage('Push docker') {
-            steps {
-                withDockerRegistry(credentialsId: 'docker', url: 'https://index.docker.io/v1/') {
-			sh 'docker build -t 20127509/testt .'		    
-			sh 'docker push 20127509/testt .'
-			}
-            }
+	stage('Login Docker') {
+		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'            
+        }
+	
+	stage('Push Docker') {
+            sh 'docker push 20127509/testt'
         }
     }
 }
